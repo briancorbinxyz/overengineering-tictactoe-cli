@@ -20,8 +20,13 @@ val quarkusPlatformGroupId: String by project
 val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
+val useLocal: Boolean = project.findProperty("useLocal")?.toString()?.toBoolean() ?: true 
 dependencies {
-    implementation("org.xxdc.oss.example:tictactoe-api:1.1.1-jdk22")
+    if (useLocal) {
+        implementation(files("libs/tictactoe-api-1.2.1-jdk22.jar"))
+    } else {
+        implementation("org.xxdc.oss.example:tictactoe-api:1.2.1-jdk22")
+    }
     implementation("io.quarkus:quarkus-picocli")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-arc")
@@ -29,7 +34,7 @@ dependencies {
 }
 
 group = "org.xxdc.oss.example"
-version = "1.1.1-SNAPSHOT"
+version = "1.2.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_22
