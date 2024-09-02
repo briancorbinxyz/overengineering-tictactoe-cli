@@ -70,10 +70,12 @@ by default two random bots 'X' and 'O' will play.
 # Simply run the game with a bot player 'X' facing another bot player 'O'.
 tictactoe-cli
 
-# Play a game with an intelligent bot player 'X' using monte carlo tree search with a maximum algo time of 500ms facing a bot player 'O' using a random strategy.
+# Play a game with an intelligent bot player 'X' using monte carlo tree search
+# with a maximum algo time of 500ms facing a bot player 'O' using a random strategy.
 tictactoe-cli -mX p MCTS -mt 500 -mO
 
-# Play a game with a human player 'O' facing an intelligent bot player 'X' using monte carlo tree search with a maximum number of iterations of 1000.
+# Play a game with a human player 'O' facing an intelligent bot player 'X' using
+# monte carlo tree search with a maximum number of iterations of 1000.
 tictactoe-cli -mO -p HUMAN -mX p MCTS -mi 1000
 ```
 

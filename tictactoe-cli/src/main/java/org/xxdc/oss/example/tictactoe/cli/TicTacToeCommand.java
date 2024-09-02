@@ -106,13 +106,13 @@ public class TicTacToeCommand implements Runnable {
         static BotStrategyConfig configFor(Integer maxIterations, Integer maxDepth, Integer maxTimeMillis) {
             var config = BotStrategyConfig.newBuilder();
             if (maxIterations != null) {
-                config.maxIterations(maxIterations);
+                config.maxIterations(Math.max(maxIterations, 1));
             }
             if (maxDepth != null) {
                 config.maxDepth(maxDepth);
             }
             if (maxTimeMillis != null) {
-                config.maxTimeMillis(maxTimeMillis.longValue());
+                config.maxTimeMillis(Math.max(maxTimeMillis.longValue(), 0L));
             } else {
                 config.maxTimeMillis(1000L);
             }
