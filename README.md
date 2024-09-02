@@ -3,7 +3,7 @@
 Over-Engineering Tic-Tac-Toe CLI
 ---
 
-A CLI for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](https://github.com/briancorbinxyz/overengineering-tictactoe) built using modern Java Frameworks: Quarkus/PicoCLI/GraalVM for development speed and native execution.
+A command-line interface for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](https://github.com/briancorbinxyz/overengineering-tictactoe) built using modern Java Frameworks: Quarkus/PicoCLI/GraalVM for development speed and native execution.
 
 ## Running the application
 
@@ -67,13 +67,19 @@ by default two random bots 'X' and 'O' will play.
 
 ### Playing
 ```bash
-# Will currently simply run the game with a bot player 'X' facing another bot player 'O'.
-
+# Simply run the game with a bot player 'X' facing another bot player 'O'.
 tictactoe-cli
+
+# Play a game with an intelligent bot player 'X' using monte carlo tree search with a maximum algo time of 500ms facing a bot player 'O' using a random strategy.
+tictactoe-cli -mX p MCTS -mt 500 -mO
+
+# Play a game with a human player 'O' facing an intelligent bot player 'X' using monte carlo tree search with a maximum number of iterations of 1000.
+tictactoe-cli -mO -p HUMAN -mX p MCTS -mi 1000
 ```
 
 #### Example Output
 ```bash
+# ❯ tictactoe-cli
 Players: X, O ([Local{playerMarker=X, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}, Local{playerMarker=O, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}])
 - TicTacToeClient/1.0 [Local (X:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)                             
 - TicTacToeClient/1.0 [Local (O:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)
