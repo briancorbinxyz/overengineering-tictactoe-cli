@@ -109,4 +109,4 @@ Darwin corbinm1mac.local 23.6.0 Darwin Kernel Version 23.6.0: Mon Jul 29 21:14:3
 
 ## Developing, packaging, deploying and running the application
 
-See: [Tic-Tac-Toe CLI - README.MD](tictactoe-cli/README.MD)
+See: [Tic-Tac-Toe CLI - README.MD](tictactoe-cli/README.md)

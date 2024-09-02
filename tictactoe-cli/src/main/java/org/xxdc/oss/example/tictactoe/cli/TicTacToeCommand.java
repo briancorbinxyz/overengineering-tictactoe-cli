@@ -8,7 +8,7 @@ import org.xxdc.oss.example.PlayerNode;
 
 import jakarta.enterprise.context.Dependent;
 
-@CommandLine.Command(name = "tictactoe", description = "A Game of TicTacToe", mixinStandardHelpOptions = true, version = "1.1.1")
+@CommandLine.Command(name = "tictactoe", description = "A Game of TicTacToe", mixinStandardHelpOptions = true, version = "1.2.1")
 public class TicTacToeCommand implements Runnable {
 
     @CommandLine.Option(names = {"-d", "--dimension"}, description = "The dimension of the game board (default: ${DEFAULT-VALUE}, for a ${DEFAULT-VALUE}x${DEFAULT-VALUE} board).", defaultValue = "3")
