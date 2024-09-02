@@ -1,4 +1,4 @@
-![Over-Engineering TicTacToe](oe-tictactoe.png)
+![Over-Engineering TicTacToe](tictactoe-cli/oe-tictactoe.png)
 
 Over-Engineering Tic-Tac-Toe CLI
 ---
