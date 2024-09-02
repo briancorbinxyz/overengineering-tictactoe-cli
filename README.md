@@ -7,7 +7,7 @@ A CLI for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](
 
 ## Running the application
 
-### Help
+### Interface
 ```bash
 tictactoe-cli --help
 
@@ -78,6 +78,33 @@ Winner: Player X!
 XOX
 XXO
 XOO
+```
+
+## Benchmarking
+
+Using [Hyperfine](https://github.com/sharkdp/hyperfine) to benchmark the native executable vs. the Java HotSpot executable:
+
+```bash
+# Native run vs. Java HotSpot run
+❯ hyperfine --warmup 1 -n native 'tictactoe-cli/build/tictactoe-cli-1.2.1-SNAPSHOT-runner' -n hotspot 'java -jar tictactoe-cli/build/quarkus-app/quarkus-run.jar'
+Benchmark 1: native
+  Time (mean ± σ):      22.6 ms ±   7.5 ms    [User: 6.6 ms, System: 8.9 ms]
+  Range (min … max):    17.5 ms …  88.8 ms    117 runs
+ 
+  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet system without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
+ 
+Benchmark 2: hotspot
+  Time (mean ± σ):     511.1 ms ±  21.3 ms    [User: 928.0 ms, System: 99.1 ms]
+  Range (min … max):   490.6 ms … 553.7 ms    10 runs
+ 
+  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet system without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
+ 
+Summary
+  native ran
+   22.57 ± 7.51 times faster than hotspot
+
+❯ uname -a
+Darwin corbinm1mac.local 23.6.0 Darwin Kernel Version 23.6.0: Mon Jul 29 21:14:30 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T6000 arm64
 ```
 
 ## Developing, packaging, deploying and running the application
