@@ -9,16 +9,60 @@ A CLI for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](
 
 ### Interface
 ```bash
-tictactoe-cli --help
+Usage:
 
-Usage: tictactoe [-hsV] [-d=<dimension>]
-A Game of TicTacToe
+Play a game of tic-tac-toe.
+
+tictactoe [-hnsV] [-d=<dimension>] -m=<marker> [-md=<maxDepth>]
+          [-mi=<maxIterations>] [-mt=<maxTimeMillis>] [-p=<player>]
+
+Description:
+
+A game of Tic-Tac-Toe that can be played on an arbitrary sized board by humans
+and/or AI opponents.
+
+When started without any arguments, the game will be played on a 3x3 board with
+two random bot players.
+
+Options:
   -d, --dimension=<dimension>
-                  The dimension of the game board (default: 3, for a 3x3 board).
-  -h, --help      Show this help message and exit.
+                          The dimension of the game board (default: 3, for a
+                            3x3 board).
   -s, --serialization-enabled
-                  Serialized persistence enabled (default: false).
-  -V, --version   Print version information and exit.
+                          Serialized persistence enabled (default: false).
+  -n, --native            Use native game board for enhanced performance if
+                            available (default: false).
+  -h, --help              Show this help message and exit.
+  -V, --version           Print version information and exit.
+A player participating in the game denoted by their marker e.g. ['X', 'O', ...]
+by default two random bots 'X' and 'O' will play.
+  -m, --marker=<marker>   The marker of the player, e.g. 'X', 'O'.
+  -p, -a, --player, --algorithm=<player>
+                          The player/algorithm type, one of HUMAN, MINIMAX, 
+                            ALPHABETA, PARANOID, RANDOM, MCTS (default: RANDOM).
+                          - Example 1: `-p HUMAN -m X -p RANDOM -m O` will
+                            create a game with a human player and a random bot
+                            player.
+                          - Example 2: `-p HUMAN -m X -p PARANOID -m O -p
+                            RANDOM -m W` will create a game with a human player
+                            and two bot players using paranoid and random
+                            respectively.
+                          - Example 3: `-p MCTS -mi 1000 -m O -p RANDOM -m X`
+                            will create a game with a mcts bot player with a
+                            maximum number of iterations of 1000 vs. a random
+                            bot player.
+                          - Example 4: `-mO -mX` will create a game with two
+                            random bot players.
+                          - Example 5: `-mX -mO -p MCTS -mi 500` will create a
+                            game with a random bot and a mcts bot player with a
+                            maximum number of iterations of 500.
+      -mi, --max-bot-iterations=<maxIterations>
+                          The maximum number of iterations for bot player types.
+      -md, --max-bot-depth=<maxDepth>
+                          The maximum depth of search for bot player types.
+      -mt, --max-bot-time=<maxTimeMillis>
+                          The maximum time in millis to determine next move for
+                            bot player types.
 ```
 
 ### Playing
@@ -30,7 +74,9 @@ tictactoe-cli
 
 #### Example Output
 ```bash
-Players: X, O ([Local{playerMarker=X, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}, Local{playerMarker=O, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}])- TicTacToeClient/1.0 [Local (X:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)                             - TicTacToeClient/1.0 [Local (O:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)
+Players: X, O ([Local{playerMarker=X, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}, Local{playerMarker=O, player=BotPlayer[strategyFunction=org.xxdc.oss.example.bot.BotStrategy$$Lambda/0x000001fe013d3c68@4e7afe5a]}])
+- TicTacToeClient/1.0 [Local (X:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)                             
+- TicTacToeClient/1.0 [Local (O:BotPlayer)] (IP: 127.0.0.1; Host: corbinm1mac.local; Java: 23; OS: Mac OS X 14.6.1)
 ___
 ___
 ___
