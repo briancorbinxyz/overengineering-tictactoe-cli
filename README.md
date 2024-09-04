@@ -3,7 +3,7 @@
 Over-Engineering Tic-Tac-Toe CLI
 ---
 
-A command-line interface for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](https://github.com/briancorbinxyz/overengineering-tictactoe) built using modern Java Frameworks: Quarkus/PicoCLI/GraalVM for development speed and native execution.
+A command-line interface for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](https://github.com/briancorbinxyz/overengineering-tictactoe) built using modern Java Frameworks: [Quarkus](https://quarkus.io/)/[PicoCLI](https://picocli.info/)/[GraalVM](https://www.graalvm.org/) for development speed and native execution.
 
 ## Running the application
 
