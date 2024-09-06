@@ -5,6 +5,16 @@ Over-Engineering Tic-Tac-Toe CLI
 
 A command-line interface for running Tic-Tac-Toe - from the project [Over-Engineering Tic-Tac-Toe](https://github.com/briancorbinxyz/overengineering-tictactoe) built using modern Java Frameworks: [Quarkus](https://quarkus.io/)/[PicoCLI](https://picocli.info/)/[GraalVM](https://www.graalvm.org/) for development speed and native execution.
 
+Supports algorithm options `-p <algo>`:
+
+- RANDOM: Chooses the next move at random
+- MINIMAX: Chooses the next move using minimax
+- MINIMAX: Chooses the next move using minimax w. alpha-beta pruning
+- MAXN: Chooses the next move using MaxN
+- PARANOID: Chooses the next move using Paranoid "me vs. the world"
+- MCTS: Choose the next move using monte carlo tree search
+
+
 ## Running the application
 
 ### Interface
